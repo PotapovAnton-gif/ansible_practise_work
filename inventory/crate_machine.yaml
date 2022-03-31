@@ -1,0 +1,117 @@
+- name: Create vm
+  ycc_vm:
+    token: AQAAAAAePzseAATuwX3rdF2tBEkfqvhdsVBffhM
+    name: vm1
+    login: antpotapov
+    public_ssh_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChQFQuvjI0bQiiWDsxuiDuloC3QyK8wVZwYv0ngXTA3e7WoXjQ3vz3dTkBxlipSG6jGvNFuecg6yCczjbodLiLyDYRstWnxIr11rgNroTwHQn2fLqa/Em2IsbNVdFUj6JetrafvAlVPmkrsIm4Utrq1s67Dfahaoset4A+IN2ItW2Ytizc49uB+9XMjo8n2grigXD3QZBxGqcWFtJg4tDotnvqlYhMQSLW6Tdb9I9c2kklxYRdMU+6U14oQOcP3TMg/fK8YRUsxyR1wYq+rampTiRlN16TZPddcwRjZzABYdMJhh+Fkex2IM22TH/M7e3ukxQekwBfXa3J2/ETWJ3hvgYJ0xgYXtGxO/gplOPLzxco4hI3sulcdJf4unjuWDubzxVn5yhKhXJVIuCubf51sqCWsdRLmyJDJnfoxMMhW/X+CZrMAwgOMC6kJ7DTc/1kNh+0A0tsw68cgnsT/eSX59+m8YoRXDkxLGyowlSb9kXYfzOG5uI2MnOOVvU4ngc= antpotapov2019@Anton
+    hostname: vm1
+    zone_id: ru-central1-a
+    folder_id: b1g2bdkaaf23hsn73f7v
+    platform_id: "Intel Cascade Lake"
+    core_fraction: 100
+    cores: 2
+    memory: 2
+    image_id: fd8mfc6omiki5govl68h
+    disk_type: nvme
+    disk_size: 16
+    subnet_id: b0cccg656k0nixi92a
+    assign_public_ip: true
+    preemptible: true
+    state: present
+  tags: init_vm1
+  
+  
+- name: Stop vm1
+  ycc_vm:
+    token: AQAAAAAePzseAATuwX3rdF2tBEkfqvhdsVBffhM
+    name: vm1
+    operation: stop
+  tags: stop_vm1
+
+- name: Start vm1
+  ycc_vm:
+    token: AQAAAAAePzseAATuwX3rdF2tBEkfqvhdsVBffhM
+    name: vm1
+    operation: start
+  tags: start_vm1
+
+
+- name: Create vm2
+  ycc_vm:
+    token: AQAAAAAePzseAATuwX3rdF2tBEkfqvhdsVBffhM
+    name: vm2
+    login: antpotapov
+    public_ssh_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChQFQuvjI0bQiiWDsxuiDuloC3QyK8wVZwYv0ngXTA3e7WoXjQ3vz3dTkBxlipSG6jGvNFuecg6yCczjbodLiLyDYRstWnxIr11rgNroTwHQn2fLqa/Em2IsbNVdFUj6JetrafvAlVPmkrsIm4Utrq1s67Dfahaoset4A+IN2ItW2Ytizc49uB+9XMjo8n2grigXD3QZBxGqcWFtJg4tDotnvqlYhMQSLW6Tdb9I9c2kklxYRdMU+6U14oQOcP3TMg/fK8YRUsxyR1wYq+rampTiRlN16TZPddcwRjZzABYdMJhh+Fkex2IM22TH/M7e3ukxQekwBfXa3J2/ETWJ3hvgYJ0xgYXtGxO/gplOPLzxco4hI3sulcdJf4unjuWDubzxVn5yhKhXJVIuCubf51sqCWsdRLmyJDJnfoxMMhW/X+CZrMAwgOMC6kJ7DTc/1kNh+0A0tsw68cgnsT/eSX59+m8YoRXDkxLGyowlSb9kXYfzOG5uI2MnOOVvU4ngc= antpotapov2019@Anton
+    hostname: vm2
+    zone_id: ru-central1-a
+    folder_id: b1g2bdkaaf23hsn73f7v
+    platform_id: "Intel Cascade Lake"
+    core_fraction: 100
+    cores: 2
+    memory: 2
+    image_id: fd8mfc6omiki5govl68h
+    disk_type: nvme
+    disk_size: 16
+    subnet_id: b0cccg656k0nixi92a
+    assign_public_ip: true
+    preemptible: true
+    state: present
+  tags: init_vm2
+  
+  
+- name: Stop vm
+  ycc_vm:
+    token: AQAAAAAePzseAATuwX3rdF2tBEkfqvhdsVBffhM
+    name: vm2
+    operation: stop
+  tags: stop_vm2
+
+- name: Start vm
+  ycc_vm:
+    token: AQAAAAAePzseAATuwX3rdF2tBEkfqvhdsVBffhM
+    name: vm2
+    operation: start
+  tags: start_vm2
+
+- name: Create vm3
+  ycc_vm:
+    token: AQAAAAAePzseAATuwX3rdF2tBEkfqvhdsVBffhM
+    name: vm3
+    login: antpotapov
+    public_ssh_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChQFQuvjI0bQiiWDsxuiDuloC3QyK8wVZwYv0ngXTA3e7WoXjQ3vz3dTkBxlipSG6jGvNFuecg6yCczjbodLiLyDYRstWnxIr11rgNroTwHQn2fLqa/Em2IsbNVdFUj6JetrafvAlVPmkrsIm4Utrq1s67Dfahaoset4A+IN2ItW2Ytizc49uB+9XMjo8n2grigXD3QZBxGqcWFtJg4tDotnvqlYhMQSLW6Tdb9I9c2kklxYRdMU+6U14oQOcP3TMg/fK8YRUsxyR1wYq+rampTiRlN16TZPddcwRjZzABYdMJhh+Fkex2IM22TH/M7e3ukxQekwBfXa3J2/ETWJ3hvgYJ0xgYXtGxO/gplOPLzxco4hI3sulcdJf4unjuWDubzxVn5yhKhXJVIuCubf51sqCWsdRLmyJDJnfoxMMhW/X+CZrMAwgOMC6kJ7DTc/1kNh+0A0tsw68cgnsT/eSX59+m8YoRXDkxLGyowlSb9kXYfzOG5uI2MnOOVvU4ngc= antpotapov2019@Anton
+    hostname: vm3
+    zone_id: ru-central1-a
+    folder_id: b1g2bdkaaf23hsn73f7v
+    platform_id: "Intel Cascade Lake"
+    core_fraction: 100
+    cores: 2
+    memory: 2
+    image_id: fd8p7vi5c5bbs2s5i67s
+    disk_type: nvme
+    disk_size: 16
+    subnet_id: b0cccg656k0nixi92a
+    assign_public_ip: true
+    preemptible: true
+    metadata:
+        user-data: "cloud init format in str"
+    labels:
+        my_vm: 1
+    state: present
+  tags: init_vm3
+  
+  
+- name: Stop vm3
+  ycc_vm:
+    token: AQAAAAAePzseAATuwX3rdF2tBEkfqvhdsVBffhM
+    name: my_tyni_vm3
+    operation: stop
+  tags: stop_vm3
+
+- name: Start vm3
+  ycc_vm:
+    token: AQAAAAAePzseAATuwX3rdF2tBEkfqvhdsVBffhM
+    name: my_tyni_vm3
+    operation: start
+  tags: start_vm3
+
+

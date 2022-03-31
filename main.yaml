@@ -1,0 +1,42 @@
+---
+- name: Create and setup 
+  gather_facts: no
+  become: true
+- hosts: apps
+  tasks:
+    - name: install docker
+      apt: name=docker state=latest update_cache=yes
+
+    - name: launch docker
+      sysvinit: name=docker state=started enabled=yes
+
+- hosts: database
+  tasks:
+    - name: install mysql
+      apt: name=mysql state=latest update_cache=yes
+
+    - name: launch mysql
+      sysvinit: name=mysql state=started enabled=yes
+
+- hosts: user
+  tasks: 
+    - name: Create the user1
+      ansible.builtin.user: 
+        name: user1 
+        generate_ssh_key: yes
+        ssh_key_bits: 2048
+        ssh_key_file: .ssh/id_rsa
+
+- hosts: no_user
+  tasks:
+    - name: create a directory
+      file:
+        path: ~/.ssh
+        state: directory
+
+    - name: transfer ssh-key 
+      synchronize:
+        src: /hame/user1/.ssh/id_rsa
+        dest: ~/.ssh/id_rsa
+      delegate_to: ServerA
+    

@@ -1,0 +1,28 @@
+[app]
+hosts:
+  vm1:
+    host: vm1
+  vm2:
+    host: vm2
+
+[user]
+hosts:
+  vm1:
+    host: vm1
+
+[no_user]
+hosts:
+  vm1:
+    host: vm2
+  vm2:
+    host: vm3
+
+[database]
+hosts:
+  vm3:
+    host: vm3
+
+[web]
+hosts:
+  vm3:
+    host: vm3
